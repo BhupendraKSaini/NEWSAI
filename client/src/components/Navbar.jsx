@@ -48,6 +48,20 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+        {isOpen && <div>
+          <ul className="md:hidden flex flex-col gap-4">
+            {["Home", "Categories", "Channels", "About"].map((item) => (
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 100 }}
+                key={item}
+                className="hover:text-gray-700"
+              >
+                <Link to={`/${item.toLowerCase()}`}>{item}</Link>
+              </motion.li>
+            ))}
+          </ul>
+          </div>}
       </nav>
     </>
   );
